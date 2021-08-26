@@ -1,0 +1,7 @@
+{% block content %}
+    <h1>Deletar Produtor</h1>
+    <form action="" method="post">{% csrf_token %}
+      <p>Vai deletar mesmo "{{ perda.produtor_nome }}"?</p>
+      <input type="submit" value="Confirm">
+    </form>
+{% endblock content %}

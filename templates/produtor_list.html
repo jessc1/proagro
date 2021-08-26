@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Perdas{% endblock %}
+{% block content %}
+<h1>Lista de Perdas</h1>
+  {% for perda in all_produtor %}
+    <div>
+      <h2><a href="{{ perda.get_absolute_url }}">{{ perda.produtor_nome }}</a></h2>
+    </div>  
+  {% endfor %}
+  <a href="{% url 'novo_produtor' %}"> + Adicionar Novo Produtor</a>
+  
+{% endblock %}

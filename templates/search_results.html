@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Search {% endblock title %}
+{% block content %}
+  <h1>Search Results </h1>
+  {% for perda in all_produtor %}
+    <div>
+        <h3><a href="{{ perda.get_absolute_url }}">{{ perda.produtor_nome }}</a></h3>
+        <p>Produtor: {{ perda.produtor_nome }}</p>
+        <p>CPF: $ {{ perda.produtor_cpf }}</p>        
+    </div>
+  {% endfor %}
+{% endblock content %}

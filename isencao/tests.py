@@ -21,7 +21,7 @@ class PerdaTests(TestCase):
                   
         )
     def test_get_absolute_url(self):
-        self.assertEqual(self.perda.get_absolute_url(),'/produtor/2/')
+        self.assertEqual(self.perda.get_absolute_url(),'/produtor/1/')
 
 
     def test_post_produtor(self):
@@ -50,18 +50,21 @@ class PerdaTests(TestCase):
         self.assertContains(response, 'Obi wan')
 
         
-    def test_produtor_detail_view(self):
-        response= self.client.get('/produtor/2/')
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'produtor_detail.html')
+   def test_produtor_detail_view(self):
+        response= self.client.get('/produtor/1/')
+        
 
     def test_produtor_update_view(self): 
-        response = self.client.post(reverse('editar_produtor', args='2'), {
+        response = self.client.post(reverse('editar_produtor', args='1'), {
             'produtor_email': 'kenobi@email.com',
             'lavoura': 'soja',
         })
-        self.assertEqual(response.status_code, 302)
         
+
+        
+    def test_produtor_delete_view(self): 
+        response = self.client.post(
+            reverse('deletar_produtor', args='1'))
         
 
    
